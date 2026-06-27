@@ -228,7 +228,7 @@ export default function FreelancerDashboard() {
           </div>
         )}
 
-        {/* Earnings */}
+        {/* Earnings section */}
         {activeTab === 'earnings' && (
           <div style={{ maxWidth: 900 }}>
             {earnings.length === 0 ? (
