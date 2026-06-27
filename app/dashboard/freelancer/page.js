@@ -14,7 +14,7 @@ export default function FreelancerDashboard() {
   const [profileMsg, setProfileMsg] = useState('');
   const [deliverableModal, setDeliverableModal] = useState(null);
   const [deliverableUrl, setDeliverableUrl] = useState('');
-
+// useeffect(() => {
  useEffect(() => {
   if (!isPending && !session) router.push('/login');
   if (!isPending && session?.user?.email) {
