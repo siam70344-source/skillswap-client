@@ -262,7 +262,7 @@ export default function FreelancerDashboard() {
           </div>
         )}
 
-        {/* Edit Profile sectio0n*/}
+        {/* Edit Profile section*/}
         {activeTab === 'edit-profile' && (
           <div style={{ maxWidth: 600 }}>
             <div style={s.card}>
