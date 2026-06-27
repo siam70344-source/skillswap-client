@@ -40,7 +40,7 @@ export default function FreelancerDashboard() {
       setProposals(res.data);
     } catch (err) {}
   };
-
+//earnings 
   const fetchEarnings = async () => {
     try {
       const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/payments/freelancer/${session.user.email}`);
