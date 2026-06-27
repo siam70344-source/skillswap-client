@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSession } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-
+// new section
 export default function FreelancerDashboard() {
   const { data: session, isPending } = useSession();
   const router = useRouter();
