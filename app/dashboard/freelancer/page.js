@@ -262,7 +262,7 @@ export default function FreelancerDashboard() {
           </div>
         )}
 
-        {/* Edit Profile */}
+        {/* Edit Profile sectio0n*/}
         {activeTab === 'edit-profile' && (
           <div style={{ maxWidth: 600 }}>
             <div style={s.card}>
@@ -297,7 +297,7 @@ export default function FreelancerDashboard() {
         )}
       </main>
 
-      {/* Deliverable Modal */}
+      {/* Deliverable Modal section*/}
       {deliverableModal && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50 }}>
           <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-default)', borderRadius: 16, padding: 32, width: '100%', maxWidth: 480, margin: '0 16px' }}>
