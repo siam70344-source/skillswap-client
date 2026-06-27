@@ -89,7 +89,7 @@ export default function FreelancerDashboard() {
     { id: 'earnings', label: 'Earnings', icon: '💰' },
     { id: 'edit-profile', label: 'Edit Profile', icon: '✏️' },
   ];
-
+// sidebar and main styles
   const s = {
     sidebar: { width: 240, background: 'var(--bg-secondary)', borderRight: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', minHeight: '100vh', padding: '24px 16px' },
     main: { flex: 1, background: 'var(--bg-primary)', padding: '32px 36px', minHeight: '100vh' },
