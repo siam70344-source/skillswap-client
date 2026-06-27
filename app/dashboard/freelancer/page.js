@@ -72,7 +72,7 @@ export default function FreelancerDashboard() {
       setDeliverableModal(null); setDeliverableUrl(''); fetchProposals();
     } catch (err) {}
   };
-
+// compute stats and active projects
   const stats = {
     total: proposals.length,
     pending: proposals.filter(p => p.status === 'pending').length,
