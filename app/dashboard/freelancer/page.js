@@ -64,7 +64,7 @@ export default function FreelancerDashboard() {
       setProfileMsg('success');
     } catch (err) { setProfileMsg('error'); }
   };
-
+// handle deliverable submission
   const handleSubmitDeliverable = async () => {
     if (!deliverableUrl) return alert('Please enter a URL');
     try {
