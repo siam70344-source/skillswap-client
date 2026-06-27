@@ -25,7 +25,7 @@ export default function FreelancerDashboard() {
       });
   }
 }, [session, isPending]);
-
+// fetch proposals, earnings, and profile when session is available
   useEffect(() => {
     if (session?.user?.email) {
       fetchProposals();
