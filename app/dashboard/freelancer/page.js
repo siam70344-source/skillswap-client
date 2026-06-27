@@ -79,9 +79,9 @@ export default function FreelancerDashboard() {
     accepted: proposals.filter(p => p.status === 'accepted').length,
     totalEarnings: earnings.reduce((sum, e) => sum + e.amount, 0),
   };
-
+// 
   const activeProjects = proposals.filter(p => p.status === 'accepted');
-
+// nav items and styles
   const navItems = [
     { id: 'overview', label: 'Overview', icon: '▦' },
     { id: 'my-proposals', label: 'My Proposals', icon: '📬' },
