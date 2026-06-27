@@ -104,7 +104,7 @@ export default function FreelancerDashboard() {
   };
 
   if (isPending) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-primary)' }}><p style={{ color: 'var(--text-secondary)' }}>Loading...</p></div>;
-
+// return the dashboard layout
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: 'var(--bg-primary)' }}>
       {/* Sidebar */}
