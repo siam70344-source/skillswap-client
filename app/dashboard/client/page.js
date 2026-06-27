@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSession } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-
+// eslint-disable-next-line import/no-unresolved
 export default function ClientDashboard() {
   const { data: session, isPending } = useSession();
   const router = useRouter();
