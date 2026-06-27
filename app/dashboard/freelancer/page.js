@@ -157,7 +157,7 @@ export default function FreelancerDashboard() {
           </div>
         )}
 
-        {/* My Proposals */}
+        {/* My Proposals section */}
         {activeTab === 'my-proposals' && (
           <div style={{ maxWidth: 900 }}>
             {proposals.length === 0 ? (
