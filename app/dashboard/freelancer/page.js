@@ -54,7 +54,7 @@ export default function FreelancerDashboard() {
       if (res.data) setProfile({ name: res.data.name || '', image: res.data.image || '', skills: res.data.skills?.join(', ') || '', bio: res.data.bio || '', hourlyRate: res.data.hourlyRate || '' });
     } catch (err) {}
   };
-
+// handle profile update
   const handleProfileUpdate = async (e) => {
     e.preventDefault();
     try {
