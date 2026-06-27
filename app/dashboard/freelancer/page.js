@@ -140,7 +140,7 @@ export default function FreelancerDashboard() {
           <p style={{ color: 'var(--text-muted)', fontSize: 13 }}>Manage your proposals and earnings</p>
         </div>
 
-        {/* Overview */}
+        {/* Overview sectionss */}
         {activeTab === 'overview' && (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16 }}>
             {[
