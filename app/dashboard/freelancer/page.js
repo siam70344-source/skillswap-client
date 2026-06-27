@@ -133,7 +133,7 @@ export default function FreelancerDashboard() {
         </nav>
       </aside>
 
-      {/* Main */}
+      {/* Main section */}
       <main style={s.main}>
         <div style={{ marginBottom: 28 }}>
           <h1 style={{ fontSize: 22, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>{navItems.find(n => n.id === activeTab)?.label}</h1>
