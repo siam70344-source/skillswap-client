@@ -200,7 +200,7 @@ export default function FreelancerDashboard() {
           </div>
         )}
 
-        {/* Active Projects */}
+        {/* Active Projects section */}
         {activeTab === 'active-projects' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 800 }}>
             {activeProjects.length === 0 ? (
