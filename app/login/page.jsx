@@ -20,7 +20,15 @@ export default function LoginPage() {
         setError('Invalid email or password');
         setLoading(false);
         return;
+        
       }
+      // After successful login, get JWT token
+await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/jwt-login`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  credentials: 'include',
+  body: JSON.stringify({ email: form.email }),
+});
       const userRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/${form.email}`);
       const user = await userRes.json();
       if (user?.role === 'admin') router.push('/dashboard/admin');
