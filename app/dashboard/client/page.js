@@ -27,31 +27,35 @@ export default function ClientDashboard() {
   }
 }, [session, isPending]);
 
-  useEffect(() => {
-    if (session?.user?.email) fetchTasks();
-  }, [session]);
-
+ useEffect(() => {
+  if (session?.user?.email) {
+    fetchTasks().then((taskList) => {
+      if (taskList?.length > 0) fetchProposals(taskList);
+    });
+  }
+}, [session]);
   useEffect(() => {
     if (activeTab === 'proposals' && tasks.length > 0) fetchProposals();
   }, [activeTab, tasks]);
 
-  const fetchTasks = async () => {
-    try {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/tasks/client/${session.user.email}`);
-      setTasks(res.data);
-    } catch (err) {}
-  };
-
-  const fetchProposals = async () => {
-    try {
-      const allProposals = [];
-      for (const task of tasks) {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/proposals?taskId=${task._id}`);
-        allProposals.push(...res.data.map(p => ({ ...p, taskTitle: task.title })));
-      }
-      setProposals(allProposals);
-    } catch (err) {}
-  };
+ const fetchTasks = async () => {
+  try {
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/tasks/client/${session.user.email}`);
+    setTasks(res.data);
+    return res.data;
+  } catch (err) {}
+};
+  const fetchProposals = async (taskList) => {
+  try {
+    const list = taskList || tasks;
+    const allProposals = [];
+    for (const task of list) {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/proposals?taskId=${task._id}`);
+      allProposals.push(...res.data.map(p => ({ ...p, taskTitle: task.title })));
+    }
+    setProposals(allProposals);
+  } catch (err) {}
+};
 
   const handlePostTask = async (e) => {
     e.preventDefault();
