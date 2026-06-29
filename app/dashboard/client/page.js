@@ -86,18 +86,24 @@ export default function ClientDashboard() {
     } catch (err) {}
   };
 
-  const handleAcceptProposal = async (proposal) => {
-    try {
-      const task = tasks.find(t => t._id === proposal.task_id);
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/payments/create-checkout-session`, {
-        taskId: proposal.task_id, taskTitle: task.title,
-        amount: proposal.proposed_budget, clientEmail: session.user.email,
-        freelancerEmail: proposal.freelancer_email,
-      });
-      await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/proposals/${proposal._id}`, { status: 'accepted' });
-      window.location.href = res.data.url;
-    } catch (err) { alert('Payment failed. Try again.'); }
-  };
+ const handleAcceptProposal = async (proposal) => {
+  if (!session?.user?.email) return alert('Please login first');
+  try {
+    const task = tasks.find(t => t._id === proposal.task_id);
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/payments/create-checkout-session`, {
+      taskId: proposal.task_id,
+      taskTitle: task?.title,
+      amount: proposal.proposed_budget,
+      clientEmail: session.user.email,
+      freelancerEmail: proposal.freelancer_email,
+    });
+    await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/proposals/${proposal._id}`, { status: 'accepted' });
+    window.location.href = res.data.url;
+  } catch (err) {
+    console.log('Payment error:', err.response?.data);
+    alert('Payment failed. Try again.');
+  }
+};
 
   const handleRejectProposal = async (proposalId) => {
     try {
